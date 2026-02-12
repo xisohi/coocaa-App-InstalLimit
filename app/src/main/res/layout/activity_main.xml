@@ -3,116 +3,242 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0F1219"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/edit1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="28dp"
-        android:hint="应用白名单"
-        android:nextFocusLeft="@id/btn_copy_from_macket"
-        android:nextFocusRight="@id/save"
-        android:nextFocusUp="@id/btn_copy_from_macket"
-        android:nextFocusDown="@id/save" />
-
-
-    <Button
-        android:id="@+id/save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="5dp"
-        android:nextFocusLeft="@id/edit1"
-        android:nextFocusRight="@id/edit_package"
-        android:nextFocusUp="@id/edit1"
-        android:nextFocusDown="@id/edit_package"
-        android:onClick="Ok"
-        android:text="@string/save" />
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="30dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    >
-
-    <EditText
-        android:id="@+id/edit_package"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:hint="输入包名"
-        android:nextFocusLeft="@id/save"
-        android:nextFocusRight="@id/btn_select_app"
-        android:nextFocusUp="@id/save"
-        android:nextFocusDown="@id/btn_select_app"
-        />
-    <Button
-        android:id="@+id/btn_select_app"
-        android:layout_width="wrap_content"
-        android:nextFocusLeft="@id/edit_package"
-        android:nextFocusRight="@id/btn_add"
-        android:nextFocusUp="@id/edit_package"
-        android:nextFocusDown="@id/btn_add"
-        android:text="选择应用"
-        android:layout_marginRight="30dp"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
-
+    <!-- 顶部标题栏 -->
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#1E2B3C"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
 
-        <Button
-            android:id="@+id/btn_add"
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="18dp"
-            android:nextFocusLeft="@id/edit_package"
-            android:nextFocusUp="@id/edit_package"
-            android:nextFocusDown="@id/btn_delete"
-            android:text="添加" />
+            android:layout_weight="1"
+            android:text="系统白名单管理"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.02" />
 
-
-        <Button
-
-            android:id="@+id/btn_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="18dp"
-            android:nextFocusUp="@id/btn_add"
-            android:nextFocusDown="@id/btn_copy_from_macket"
-
-            android:text="@string/del" />
-
-        <Button
-
-            android:id="@+id/btn_copy_from_macket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_margin="18dp"
-            android:nextFocusRight="@id/edit1"
-            android:nextFocusUp="@id/btn_delete"
-            android:nextFocusDown="@id/edit1"
-
-            android:text="@string/csc_copy" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_gravity="center"
-        android:minLines="3"
-        android:text="@string/about"
-        android:textColor="#000"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+    <!-- 主内容区 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- 白名单输入卡片 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="#252A3A"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="当前白名单"
+                    android:textColor="#5DADE2"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.03" />
+
+                <EditText
+                    android:id="@+id/edit1"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="#0F1219"
+                    android:gravity="top"
+                    android:hint="com.example.app1, com.example.app2"
+                    android:padding="12dp"
+                    android:textColor="#ECF0F1"
+                    android:textColorHint="#5D6D7E"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="2dp"
+                    android:nextFocusDown="@id/save"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true" />
+
+            </LinearLayout>
+
+            <!-- 保存按钮 -->
+            <Button
+                android:id="@+id/save"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginBottom="10dp"
+                android:background="#3498DB"
+                android:onClick="Ok"
+                android:text="保存白名单"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:stateListAnimator="@null"
+                android:nextFocusUp="@id/edit1"
+                android:nextFocusDown="@id/edit_package" />
+
+            <!-- 添加应用行 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="#1E2B3C"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <EditText
+                    android:id="@+id/edit_package"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="#0F1219"
+                    android:hint="输入包名"
+                    android:paddingHorizontal="12dp"
+                    android:textColor="#ECF0F1"
+                    android:textColorHint="#5D6D7E"
+                    android:textSize="14sp"
+                    android:nextFocusUp="@id/save"
+                    android:nextFocusRight="@id/btn_select_app"
+                    android:nextFocusDown="@id/btn_add" />
+
+                <Button
+                    android:id="@+id/btn_select_app"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:background="#9B59B6"
+                    android:paddingHorizontal="18dp"
+                    android:text="选择应用"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.03"
+                    android:stateListAnimator="@null"
+                    android:nextFocusLeft="@id/edit_package"
+                    android:nextFocusDown="@id/btn_add" />
+            </LinearLayout>
+
+            <!-- 操作按钮组 - 电视焦点优化版 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_add"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="#27AE60"
+                    android:text="添加"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.03"
+                    android:stateListAnimator="@null"
+                    android:nextFocusUp="@id/edit_package"
+                    android:nextFocusRight="@id/btn_delete"
+                    android:nextFocusDown="@id/btn_copy_from_macket" />
+
+                <Button
+                    android:id="@+id/btn_delete"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:background="#E74C3C"
+                    android:text="删除"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.03"
+                    android:stateListAnimator="@null"
+                    android:nextFocusLeft="@id/btn_add"
+                    android:nextFocusRight="@id/btn_copy_from_macket"
+                    android:nextFocusDown="@id/btn_copy_from_macket" />
+
+                <Button
+                    android:id="@+id/btn_copy_from_macket"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:background="#F39C12"
+                    android:text="从系统导入"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.03"
+                    android:stateListAnimator="@null"
+                    android:nextFocusLeft="@id/btn_delete"
+                    android:nextFocusUp="@id/btn_add"
+                    android:nextFocusDown="@id/edit1" />
+            </LinearLayout>
+
+            <!-- 关于信息 - 带分隔线效果 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#1E2B3C"
+                android:orientation="vertical">
+
+                <!-- 隐形上分割线 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#3A4A5A" />
+
+                <TextView
+                    android:id="@+id/about_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="@string/about"
+                    android:textColor="#95A5A6"
+                    android:textSize="13sp"
+                    android:lineSpacingExtra="3dp" />
+
+                <!-- 隐形下分割线 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#3A4A5A" />
+
+            </LinearLayout>
+
+            <!-- 极简版本号 - 不占空间 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="6dp"
+                android:text="v1.0 · 星辉工作室"
+                android:textColor="#5D6D7E"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
