@@ -7,9 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;  // 添加日志导入
 import android.view.View;
-import android.widget.Button;  // 添加 Button 导入（用于监听器中的类型判断）
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -51,34 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_select_app).setOnClickListener(this);
         findViewById(R.id.btn_copy_from_macket).setOnClickListener(this);
 
-        // ========== 新增：焦点监听器用于调试 ==========
-        View.OnFocusChangeListener focusListener = (v, hasFocus) -> {
-            String viewName = "";
-            int id = v.getId();
-            if (id == R.id.save) viewName = "保存";
-            else if (id == R.id.btn_select_app) viewName = "选择应用";
-            else if (id == R.id.btn_add) viewName = "添加";
-            else if (id == R.id.btn_delete) viewName = "删除";
-            else if (id == R.id.btn_copy_from_macket) viewName = "从系统导入";
-            else viewName = "未知控件";
-
-            Log.d("FocusTest", viewName + " 焦点: " + hasFocus);
-
-            // 临时用纯色验证：获得焦点时红色，失去焦点时绿色
-            if (hasFocus) {
-                v.setBackgroundColor(0xFFFF0000); // 红色
-            } else {
-                v.setBackgroundColor(0xFF00FF00); // 绿色
-            }
-        };
-
-        // 为所有按钮设置焦点监听器
-        findViewById(R.id.save).setOnFocusChangeListener(focusListener);
-        findViewById(R.id.btn_select_app).setOnFocusChangeListener(focusListener);
-        findViewById(R.id.btn_add).setOnFocusChangeListener(focusListener);
-        findViewById(R.id.btn_delete).setOnFocusChangeListener(focusListener);
-        findViewById(R.id.btn_copy_from_macket).setOnFocusChangeListener(focusListener);
-        // ========== 新增代码结束 ==========
+        // 注意：调试用的焦点监听器已移除，按钮焦点效果由布局中的 background 和 backgroundTint 控制
     }
 
     private int getMode() {
