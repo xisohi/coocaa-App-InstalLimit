@@ -1,33 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- 焦点状态：亮黄色 + 白色粗边框 + 发光效果 -->
+
+    <!-- 按下状态：深一点的青色 -->
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="#3DAA9D"/>
+            <corners android:radius="6dp"/>
+            <stroke android:width="2dp" android:color="#5EEAD4"/>
+        </shape>
+    </item>
+
+    <!-- 焦点状态：渐变 + 柔和发光 -->
     <item android:state_focused="true">
         <layer-list>
-            <!-- 外发光层 -->
+            <!-- 外层柔和发光 -->
             <item>
                 <shape>
-                    <solid android:color="#80FFA500"/>
-                    <corners android:radius="6dp"/>
-                    <padding android:left="3dp" android:top="3dp" android:right="3dp" android:bottom="3dp"/>
+                    <solid android:color="@color/tv_focus_glow"/>
+                    <corners android:radius="8dp"/>
                 </shape>
             </item>
-            <!-- 主按钮层 -->
-            <item>
+            <!-- 中层光晕 -->
+            <item android:left="2dp" android:top="2dp" android:right="2dp" android:bottom="2dp">
                 <shape>
-                    <solid android:color="#FFD700"/>
-                    <corners android:radius="4dp"/>
-                    <stroke android:width="4dp" android:color="#FFFFFF"/>
+                    <solid android:color="#604ECDC4"/>
+                    <corners android:radius="7dp"/>
+                </shape>
+            </item>
+            <!-- 主按钮渐变 -->
+            <item android:left="3dp" android:top="3dp" android:right="3dp" android:bottom="3dp">
+                <shape>
+                    <gradient
+                        android:angle="135"
+                        android:startColor="@color/tv_focus_start"
+                        android:endColor="@color/tv_focus_end"
+                        android:type="linear"/>
+                    <corners android:radius="6dp"/>
+                    <stroke android:width="2dp" android:color="@color/tv_focus_border"/>
                 </shape>
             </item>
         </layer-list>
     </item>
 
-    <!-- 默认状态：深蓝色 -->
+    <!-- 默认状态：深蓝灰 -->
     <item>
         <shape>
-            <solid android:color="#2C3E50"/>
-            <corners android:radius="4dp"/>
-            <stroke android:width="1dp" android:color="#34495E"/>
+            <solid android:color="@color/tv_normal"/>
+            <corners android:radius="6dp"/>
+            <stroke android:width="1dp" android:color="@color/tv_normal_border"/>
         </shape>
     </item>
+
 </selector>

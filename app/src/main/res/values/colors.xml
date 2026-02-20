@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- 保留原有颜色 -->
     <color name="purple_200">#2196F3</color>
     <color name="purple_500">#1976D2</color>
     <color name="purple_700">#03A9F4</color>
@@ -8,4 +9,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- TV 优化颜色 - 柔和焦点方案 -->
+    <color name="tv_focus_start">#4ECDC4</color>      <!-- 青绿色渐变起始 -->
+    <color name="tv_focus_end">#44A08D</color>        <!-- 青绿色渐变结束 -->
+    <color name="tv_focus_glow">#404ECDC4</color>     <!-- 半透明发光 -->
+    <color name="tv_focus_border">#7FDBDA</color>     <!-- 淡青色边框 -->
+
+    <color name="tv_normal">#34495E</color>           <!-- 深蓝灰默认 -->
+    <color name="tv_normal_border">#2C3E50</color>    <!-- 深边框 -->
+
+    <color name="tv_bg_dark">#0F1219</color>
+    <color name="tv_card_bg">#252A3A</color>
+
 </resources>
