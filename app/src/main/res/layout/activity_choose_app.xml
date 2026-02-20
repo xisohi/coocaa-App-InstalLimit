@@ -2,9 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<ListView
-    android:id="@+id/listview"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent"
+    android:background="#0F1219">
+
+    <!-- 标题栏（可选，但推荐） -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#1E2B3C"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:text="选择应用"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#3A4A5A"
+        android:dividerHeight="1dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:choiceMode="singleChoice"
+        android:listSelector="@drawable/list_selector_tv"
+        android:cacheColorHint="@android:color/transparent" />
+
 </LinearLayout>
